@@ -1,0 +1,20 @@
+{
+  "name": "automation-api",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun build src/index.ts --compile --outfile automation_api",
+    "run": "bun --watch run -b src/index.ts",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "files": ["dist"],
+  "dependencies": {
+    "bun-plugin-dts": "^0.2.1"
+  }
+}
