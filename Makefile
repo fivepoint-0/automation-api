@@ -10,6 +10,15 @@ tag:
 	  @echo "Tagging image..."
 	  @docker tag $(IMAGE_REPOSITORY_URL)/$(IMAGE_NAME):latest $(IMAGE_REPOSITORY_URL)/$(IMAGE_NAME):$(IMAGE_TAG)
 
-run:
+container:
 	  @echo "Running image..."
 	  @docker run -p 8080:3000 $(IMAGE_REPOSITORY_URL)/$(IMAGE_NAME):latest
+
+test:
+	bun run test
+
+install:
+	bun install
+
+run:
+	bun run -b src/index.ts

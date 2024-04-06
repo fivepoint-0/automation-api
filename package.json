@@ -5,10 +5,11 @@
   "scripts": {
     "build": "bun build src/index.ts --compile --outfile automation_api",
     "run": "bun --watch run -b src/index.ts",
-    "test": "bun test"
+    "test": "bunx tsc && bun test"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "typescript": "^5.4.4"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
