@@ -8,10 +8,9 @@ describe('Transaction Model', () => {
       id: '456',
       timestamp: '2022-01-01T00:00:00Z',
       status: 'success',
+      success: true,
       message: 'Transaction completed successfully',
-      externalApiId: '789',
-      externalApi: 'API Name',
-      type: 'internal',
+      type: 'incoming',
     };
 
     expect(transaction).toBeDefined();
@@ -20,15 +19,14 @@ describe('Transaction Model', () => {
     expect(transaction.timestamp).toBe('2022-01-01T00:00:00Z');
     expect(transaction.status).toBe('success');
     expect(transaction.message).toBe('Transaction completed successfully');
-    expect(transaction.externalApiId).toBe('789');
-    expect(transaction.externalApi).toBe('API Name');
-    expect(transaction.type).toBe('internal');
+    expect(transaction.success).toBe(true);
+    expect(transaction.type).toBe('incoming');
   });
 
   it('should have valid transaction types', () => {
-    const validTypes: TransactionType[] = ['internal', 'external'];
+    const validTypes: TransactionType[] = ['incoming', 'outgoing'];
 
-    expect(validTypes).toContain('internal');
-    expect(validTypes).toContain('external');
+    expect(validTypes).toContain('incoming');
+    expect(validTypes).toContain('outgoing');
   });
 });
