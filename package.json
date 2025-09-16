@@ -14,8 +14,11 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "bun-plugin-dts": "^0.2.1"
+    "bun-plugin-dts": "^0.2.1",
+    "zod": "^4.1.8"
   }
 }
