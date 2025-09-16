@@ -6,6 +6,8 @@ interface IAutomationApiContract {
   read(data?: AutomationReadRequest): Promise<Automation | Automation[]>
   update(data: AutomationUpdateRequest): Promise<Automation | undefined>
   delete(data: AutomationDeleteRequest): Promise<boolean>
+  findById(id: string): Promise<Automation | undefined>
 }
 
 export type { IAutomationApiContract }
+

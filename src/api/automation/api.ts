@@ -6,9 +6,18 @@ import type { IDataSource } from "@/data-source";
 abstract class BaseAutomationApi implements IAutomationApiContract {
   constructor(protected store: IDataSource<Automation, AutomationCreateRequest, AutomationReadRequest, AutomationUpdateRequest, AutomationDeleteRequest>) {}
   abstract create(data: AutomationCreateRequest): Promise<Automation>
-  abstract read(data?: AutomationReadRequest | undefined): Promise<Automation | Automation[]> 
+  abstract read(data?: AutomationReadRequest | undefined): Promise<Automation | Automation[]>
   abstract update(data: AutomationUpdateRequest): Promise<Automation | undefined>
   abstract delete(data: AutomationDeleteRequest): Promise<boolean>
+  async findById(id: string): Promise<Automation | undefined> {
+    const result = await this.store.read({ id } as AutomationReadRequest)
+
+    if (Array.isArray(result)) {
+      return result.length > 0 ? result[0] : undefined
+    }
+
+    return result
+  }
 }
 
 class AutomationApi extends BaseAutomationApi {
@@ -27,3 +36,4 @@ class AutomationApi extends BaseAutomationApi {
 }
 
 export { AutomationApi }
+
